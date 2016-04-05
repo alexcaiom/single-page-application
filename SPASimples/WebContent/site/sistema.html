@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Sistemas</title>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+<!-- <script type="text/javascript" src="js/all.js"></script> -->
+<link rel="stylesheet" type="text/css" href="css/estilos2.css">
+<script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- <script type="text/javascript" src="js/sistema/sistema.js"></script> -->
+</head>
+<body onload="init(sistema.init())" >
+
+<h1>Sistemas</h1>
+
+<div id="formCadastro">
+		<input type="hidden" id="classe" value="Sistema" />
+		<input type="hidden" id="metodo" value="incluir" />
+		<input type="hidden" id="id"/>
+		<div class="campo">
+			<label>Nome: </label><input type="text" id="nome" name="nome" title="nome" placeholder="nome" />
+		</div>
+		<input type="button" id="btnCadastrar" value="Salvar" title="salvar" />
+		<input type="reset" id="btnLimpar" value="Limpar" title="limpar"  />
+</div>
+
+<div id="divTabela">
+	<h2>Lista de Sistemas</h2>
+	<div id="formPesquisa">
+		<label>Nome: </label>
+		 <input type="text" id="nomePesquisa" placeholder="nome"> 
+		 <input type="button" id="btnPesquisar" value="Pesquisar">
+	</div>
+	<div id="lblSemResultados" class="oculto">
+		Sem resultados...
+	</div>
+	<div id="msgCarregando">
+		<img id="imgCarregando" alt="carregando" src="img/carregando.gif" width="25px" > Carregando...
+	</div>
+	<table id="tbl" class="dados">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Nome</td>
+				<td></td>
+			</tr>
+		</thead>		
+	</table>
+</div>
+
+</body>
+</html>

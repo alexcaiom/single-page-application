@@ -28,3 +28,7 @@ footer {
 	text-align: center;
 	border-radius: 5px;
 }
+
+.escondido {
+	height: 0px;	
+}

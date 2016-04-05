@@ -7,7 +7,7 @@ var main = {
 	rodape : "footer",
 		
 	/**
-	 * Métodos
+	 * Metodos
 	 */
 	init : function() {
 		main.carregarHeader();
