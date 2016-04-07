@@ -161,17 +161,13 @@ sistema.listar = function() {
 	var classe = "Sistema";
 	var metodo = "listar";
 
-	$.ajax(
-		{
-			url : url,
-			async : ajaxAsyncPadrao,
-			data : {
-				classe : classe,
-				metodo : metodo
-			}
-		}
-	)
-	.done(function(retorno){
+	var data = {
+		classe : classe,
+		metodo : metodo
+	};
+	
+	var fnSucesso = function(retorno){
+		debugger;
 		retorno = $.parseJSON(retorno);
 		var consequencia = retorno.consequence;
 		if(consequencia === "SUCCESSO") {
@@ -193,11 +189,15 @@ sistema.listar = function() {
 			}
 		} 
 		console.log(retorno);
-	})
-	.fail(function(retorno){
+	};
+	
+	var fnErro = function(retorno){
+		debugger;
 		retorno = $.parseJSON(retorno);
 		console.log(retorno);
-	});
+	};
+	
+	app.getJSON(url, app.metodoGET, app.assincrono, fnSucesso, fnErro, data);
 };
 
 sistema.pesquisar = function(textoPesquisa) {

@@ -8,6 +8,8 @@ var app = {
 		sincrono   : 	false,
 		paginaAtual: 	"",
 		paginaDestino: 	"",
+		tipoJSON   :	"application/json",
+		tipoPagina :	"text/html",
 		
 		/**
 		 * Metodos
@@ -17,7 +19,7 @@ var app = {
 		 * abre uma pagina
 		 * @param url
 		 */
-		Ajax : function(url, metodo, assincrono, sucesso, erro) {
+		Ajax : function(url, metodo, assincrono, sucesso, erro, tipo) {
 			$.ajax({
 				url : url,
 				method : metodo,
@@ -38,6 +40,7 @@ var app = {
 			var fnSucesso = function(resultado) {
 				$("#conteudo").html(resultado);
 				scriptUtils.mudarScripts(app.paginaAtual, app.paginaDestino);
+				app.paginaAtual = url;
 			};
 			var fnErro = function(resultado) {
 				app.paginaDestino = "";
@@ -46,4 +49,18 @@ var app = {
 			
 			app.Ajax(url, app.metodoGET, app.assincrono, fnSucesso, fnErro);
 		},
+		
+		getJSON : function(url, metodo, assincrono, fnSucesso, fnErro, data) {
+			$.ajax({
+				url 		: url,
+				method 		: metodo,
+				async 		: assincrono,
+//				dataType: "text/html",
+//				accepts 	: 'application/json',
+				contentType : 'charset=UTF-8',
+				data 		: data
+			})
+			.done(fnSucesso)
+			.fail(fnErro);
+		}
 };
