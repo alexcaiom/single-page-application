@@ -10,6 +10,7 @@ var app = {
 		paginaDestino: 	"",
 		tipoJSON   :	"application/json",
 		tipoPagina :	"text/html",
+		debugar: 		false,
 		
 		/**
 		 * Metodos
@@ -50,7 +51,10 @@ var app = {
 			app.Ajax(url, app.metodoGET, app.assincrono, fnSucesso, fnErro);
 		},
 		
-		getJSON : function(url, metodo, assincrono, fnSucesso, fnErro, data) {
+		getJSON : function(url, metodo, assincrono, fnSucesso, fnErro, data, crossDomain) {
+			if (typeof crossDomain == undefined) {
+				crossDomain = false;
+			}
 			$.ajax({
 				url 		: url,
 				method 		: metodo,
@@ -58,7 +62,8 @@ var app = {
 //				dataType: "text/html",
 //				accepts 	: 'application/json',
 				contentType : 'charset=UTF-8',
-				data 		: data
+				data 		: data,
+				crossDomain : crossDomain
 			})
 			.done(fnSucesso)
 			.fail(fnErro);

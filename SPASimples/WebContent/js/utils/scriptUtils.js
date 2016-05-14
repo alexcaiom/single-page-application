@@ -4,6 +4,7 @@ var scriptUtils = {
 		 * e descarrega o antigo (se houver)
 		 */
 		mudarScripts : function(scriptAtual, scriptNovo) {
+			debugger;
 			scriptAtual = scriptAtual.replace(".html", ".js");
 			scriptNovo  = "./js/" + scriptNovo.replace(".html", ".js");
 			scriptUtils.retirarScript(scriptAtual);

@@ -5,6 +5,7 @@
 var sistema = {};
 
 sistema.init = function() {
+	debugger;
 	sistema.listar();
 	sistema.initEventos();
 };
@@ -197,7 +198,7 @@ sistema.listar = function() {
 		console.log(retorno);
 	};
 	
-	app.getJSON(url, app.metodoGET, app.assincrono, fnSucesso, fnErro, data);
+	app.getJSON(url, app.metodoGET, app.assincrono, fnSucesso, fnErro, data, true);
 };
 
 sistema.pesquisar = function(textoPesquisa) {
@@ -344,6 +345,4 @@ sistema.resetTabelaSistema = function() {
 	$("#tbl").html(tabelaInicial);
 };
 
-//$(document).ready (function() {
 	sistema.init();
-//});
